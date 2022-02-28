@@ -24,7 +24,7 @@ const EventForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const answers = event.target
-    console.log(answers.innerHTML)
+    console.log(typeof(answers))
     // axios.post("/api/v1/events",{
 
     // })
