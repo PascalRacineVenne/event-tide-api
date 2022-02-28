@@ -17,7 +17,7 @@ const Calendar = () => {
         onChange={(update) => {
           setDateRange(update);
         }}
-        isClearable={true}
+        isClearable={false}
       />
     </div>
   );

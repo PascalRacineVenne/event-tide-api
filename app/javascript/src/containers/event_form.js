@@ -8,7 +8,7 @@ import Event from '../components/event'
 
 const EventForm = () => {
   const [formData, setFormData] = useState(
-    { title: "", description: ""}
+    { title: "", description: "", start_date: "", end_date: "" }
   )
 
   const handleChange = (event) => {
@@ -23,11 +23,8 @@ const EventForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const answers = event.target
-    console.log(typeof(answers))
-    // axios.post("/api/v1/events",{
-
-    // })
+    console.log(formData)
+    // axios.post("/api/v1/events", formData)
     //   .then(res => console.log(res))
     //   .catch(res => console.log(res))
     // submit to Api!!!
@@ -50,7 +47,9 @@ const EventForm = () => {
         value={formData.description}
         name="description"
       />
-      <Calendar />
+      <Calendar 
+        
+      />
       <button>Submit</button>
     </form>
   )
