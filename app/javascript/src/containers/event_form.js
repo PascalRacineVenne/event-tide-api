@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+
 
 import Input from '../components/input'
 import Calendar from './calendar'
+import Event from '../components/event'
 
-const Form = () => {
+const EventForm = () => {
   const [formData, setFormData] = useState(
     { title: "", description: ""}
-  );
-  // const [description, setDescription] = useState("");
-  // console.log(`Title is ${title}. Description is ${description}`);
-  // console.log(formData);
+  )
 
   const handleChange = (event) => {
     const {name, value } = event.target
@@ -24,11 +24,12 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const answers = event.target
-    // console.log(`This is my ${answers}`)
-    console.log(answers)
-    // answers.forEach(element => {
-    //   console.log(element)
+    console.log(answers.innerHTML)
+    // axios.post("/api/v1/events",{
+
     // })
+    //   .then(res => console.log(res))
+    //   .catch(res => console.log(res))
     // submit to Api!!!
     // save it to state...?
   }
@@ -55,4 +56,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default EventForm

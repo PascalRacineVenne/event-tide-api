@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Event from '../components/event'
 
 const Events = () => {
   const [events, setEvents] = useState([])
@@ -12,10 +13,19 @@ const Events = () => {
       setEvents(res.data.data)
     })
     .catch(res => console.log(res))
-  }, [events.length])
+  }, [])
 
   const list = events.map(item => {
-    return(<li key={item.id}>{item.attributes.title}</li>)
+    const {title, description, start_time, end_time} = item.attributes
+    return(
+        <Event
+          key={item.id}
+          title={title}
+          description={description}
+          start_time={start_time}
+          end_time={end_time}
+        />
+      )
   })
 
   return (
