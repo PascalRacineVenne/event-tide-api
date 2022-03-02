@@ -47,9 +47,7 @@ const EventForm = () => {
         value={formData.description}
         name="description"
       />
-      <Calendar 
-        
-      />
+      <Calendar />
       <button>Submit</button>
     </form>
   )
