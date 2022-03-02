@@ -6,9 +6,9 @@ import Input from '../components/input'
 import Calendar from './calendar'
 import Event from '../components/event'
 
-const EventForm = () => {
+const EventForm = ({ onCreate }) => {
   const [formData, setFormData] = useState(
-    { title: "", description: "", start_date: "", end_date: "" }
+    { title: "", description: "", start_time: null, end_time: null }
   )
 
   const handleChange = (event) => {
@@ -23,10 +23,12 @@ const EventForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData)
-    // axios.post("/api/v1/events", formData)
-    //   .then(res => console.log(res))
-    //   .catch(res => console.log(res))
+    // console.log(formData)
+    axios.post("/api/v1/events", formData)
+      .then(res => {
+        onCreate();
+      })
+      .catch(res => console.log(res))
     // submit to Api!!!
     // save it to state...?
   }
@@ -47,7 +49,19 @@ const EventForm = () => {
         value={formData.description}
         name="description"
       />
-      <Calendar />
+      <Calendar 
+        onChange= {(startDate, endDate) => {
+          // console.log(startDate, endDate);
+          
+          setFormData(prevFormData => {
+          return {
+          ...prevFormData,
+          start_time: startDate,
+          end_time: endDate
+          }
+        })
+        }}
+      />
       <button>Submit</button>
     </form>
   )
