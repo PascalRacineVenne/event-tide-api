@@ -4,7 +4,6 @@ import axios from 'axios'
 
 import Input from '../components/input'
 import Calendar from './calendar'
-import Event from '../components/event'
 
 const EventForm = ({ onCreate }) => {
   const [formData, setFormData] = useState(
@@ -23,14 +22,15 @@ const EventForm = ({ onCreate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(formData)
+    // submit to Api!!!
+    // console.log(formData);
     axios.post("/api/v1/events", formData)
       .then(res => {
         onCreate();
+        alert("Your new event has been added to the list")
+        setFormData({title: "", description: "", start_time: null, end_time: null})
       })
       .catch(res => console.log(res))
-    // submit to Api!!!
-    // save it to state...?
   }
 
   return (
@@ -49,17 +49,18 @@ const EventForm = ({ onCreate }) => {
         value={formData.description}
         name="description"
       />
-      <Calendar 
+      <Calendar
+
+        // onChange={(startDate, endDate) => {console.log('start date:', startDate, '& end date:', endDate);}}
+
         onChange= {(startDate, endDate) => {
-          // console.log(startDate, endDate);
-          
           setFormData(prevFormData => {
-          return {
-          ...prevFormData,
-          start_time: startDate,
-          end_time: endDate
-          }
-        })
+            return {
+              ...prevFormData,
+              start_time: startDate,
+              end_time: endDate
+            }
+          })
         }}
       />
       <button>Submit</button>

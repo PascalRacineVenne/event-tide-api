@@ -8,19 +8,20 @@ import axios from 'axios'
 const App = () => {
   const [events, setEvents] = useState([])
 
+  // get from axios
   const getEvents = () => {
     axios.get('/api/v1/events.json')
-    .then(res => {
-      setEvents(res.data.data)
-    })
-    .catch(res => console.log(res))
-  }
-  // get from axios
+      .then(res => {
+        setEvents(res.data.data)
+      })
+      .catch(res => console.log(res))
+    }
   useEffect(() => {
     // Get the events from the api
     // update events in state (setEvents)
     getEvents()
   }, [])
+
   return (
     <div>
       <EventForm 
