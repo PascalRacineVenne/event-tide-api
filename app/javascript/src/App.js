@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Events from './containers/events'
 import EventForm from './containers/event_form'
+import axios from 'axios'
+
 
 
 const App = () => {
+  const [events, setEvents] = useState([])
+
+  const getEvents = () => {
+    axios.get('/api/v1/events.json')
+    .then(res => {
+      setEvents(res.data.data)
+    })
+    .catch(res => console.log(res))
+  }
+  // get from axios
+  useEffect(() => {
+    // Get the events from the api
+    // update events in state (setEvents)
+    getEvents()
+  }, [])
   return (
     <div>
-      <h1>Hello from App component</h1>
-      <Events />
-      <EventForm />
+      <EventForm 
+        onCreate={getEvents}
+      />
+      <Events 
+        events={events}
+      />
     </div>
   )
 }
