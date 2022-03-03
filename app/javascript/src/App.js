@@ -3,7 +3,17 @@ import Events from './containers/events'
 import EventForm from './containers/event_form'
 import axios from 'axios'
 
+import styled from 'styled-components'
 
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+// const Form = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// `;
 
 const App = () => {
   const [events, setEvents] = useState([])
@@ -23,14 +33,10 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      <EventForm 
-        onCreate={getEvents}
-      />
-      <Events 
-        events={events}
-      />
-    </div>
+    <Wrapper>
+      <Events events={events} />
+      <EventForm onCreate={getEvents} />
+    </Wrapper>
   )
 }
 
