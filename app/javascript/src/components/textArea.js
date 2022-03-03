@@ -1,17 +1,19 @@
 import React from 'react'
-import styled from "styled-components";
+import styled from 'styled-components'
 
-const StyledInput = styled.input`
+const StyledTextArea = styled.textarea`
   width: 350px;
-  height: 48px;
+  height: 100px;
   font-size: 14px;
+  font-family: var(--body-font);
   color: var(--primary-pink);
   margin: 4px 0px;
-  padding: 15px 20px;
+  padding: 4px 16px;
   background: var(--primary-light-gray);
   border: none;
   border-radius: var(--border-radius);
   text-align: left;
+  resize: none;
   outline: none;
   box-shadow: var(--box-shadow);
   &::placeholder {
@@ -20,16 +22,15 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({type, placeholder, name, value, onChange}) => {
+const TextArea = ({placeholder, name, value, onChange}) => {
   return (
-    <StyledInput
-    type={type}
-    placeholder={placeholder}
-    value={value}
-    name={name}
-    onChange={onChange}
+    <StyledTextArea
+      placeholder={placeholder}
+      name={name}
+      value={value} 
+      onChange={onChange} 
     />
   )
 }
 
-export default Input
+export default TextArea;

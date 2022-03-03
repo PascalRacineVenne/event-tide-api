@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { Fragment } from 'react'
 import Events from './containers/events'
 import EventForm from './containers/event_form'
+import NavBar from './components/navbar'
+
 import axios from 'axios'
+import styled from 'styled-components'
+import '../../assets/stylesheets/index.scss';
 
-
+const Wrapper = styled.div`
+  display: flex;
+  margin: 60px 50px 0;
+`;
 
 const App = () => {
   const [events, setEvents] = useState([])
@@ -23,14 +31,13 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      <EventForm 
-        onCreate={getEvents}
-      />
-      <Events 
-        events={events}
-      />
-    </div>
+    <Fragment>
+      <NavBar />
+      <Wrapper>
+        <Events events={events} />
+        <EventForm onCreate={getEvents} />
+      </Wrapper>
+    </Fragment>
   )
 }
 

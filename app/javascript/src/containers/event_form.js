@@ -1,16 +1,39 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-
 
 import Input from '../components/input'
 import Calendar from './calendar'
+import Button from '../components/button'
+import TextArea from '../components/textArea'
+
+import styled from 'styled-components'
+
+const Wrapper = styled.form`
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 12px auto;
+  background-color: white;
+  border-radius: var(--border-radius);
+`;
+
+const Description = styled.input`
+  height: 200px;
+`;
+const Title = styled.h3`
+  padding: 12px 0;
+  font-family: var(--special-font);
+  color: var(--primary-dark-green);
+  opacity: 0.7;
+`;
 
 const EventForm = ({ onCreate }) => {
   const [formData, setFormData] = useState(
     { title: "", description: "", start_time: null, end_time: null }
   )
-
-  const form = useRef(null);
 
   const handleChange = (event) => {
     const {name, value } = event.target
@@ -24,8 +47,8 @@ const EventForm = ({ onCreate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // submit to Api!!!
-    console.log(formData);
+
+    // POST request to the Api
     axios.post("/api/v1/events", formData)
       .then(res => {
         onCreate();
@@ -36,27 +59,23 @@ const EventForm = ({ onCreate }) => {
   }
 
   return (
-    <form useRef={form} onSubmit={handleSubmit}>
+    <Wrapper onSubmit={handleSubmit}>
+        <Title>New Event</Title>
       <Input 
         type="text"
-        placeholder="enter event title"
+        placeholder="Title"
         onChange={handleChange}
         name="title"
         value={formData.title}
       />
-      <Input 
-        type="text"
-        placeholder="enter a description"
-        onChange={handleChange}
-        value={formData.description}
+      <TextArea
+        placeholder="Description"
         name="description"
+        value={formData.description} 
+        onChange={handleChange}
+        className="Description"
       />
       <Calendar
-
-        // onChange={(startDate, endDate) => {
-        //   console.log('start date:', startDate, typeof(startDate), '& end date:', endDate, typeof(endDate));
-        // }}
-
         onChange= {(startDate, endDate) => {
           setFormData(prevFormData => {
             return {
@@ -67,8 +86,8 @@ const EventForm = ({ onCreate }) => {
           })
         }}
       />
-      <button>Submit</button>
-    </form>
+      <Button name="SUBMIT" />
+    </Wrapper>
   )
 }
 

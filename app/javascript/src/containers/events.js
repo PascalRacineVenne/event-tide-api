@@ -1,5 +1,4 @@
 import React from 'react'
-// import axios from 'axios'
 import Event from '../components/event'
 
 const Events = ({events}) => {
@@ -20,7 +19,6 @@ const Events = ({events}) => {
 
   return (
     <div>
-      <h3>Hello from events</h3>
       <ul>{list}</ul>
     </div>
   )
