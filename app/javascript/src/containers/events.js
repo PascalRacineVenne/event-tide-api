@@ -20,7 +20,6 @@ const Events = ({events}) => {
 
   return (
     <div>
-      <h3>Hello from events</h3>
       <ul>{list}</ul>
     </div>
   )

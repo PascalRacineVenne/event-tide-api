@@ -1,4 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+const StartDate = styled.div`
+  text-align: center;
+`;
+
+const EventInfos = styled.div`
+  
+`;
 
 const Event = ({title, description, start_time, end_time}) => {
 
@@ -28,20 +41,18 @@ const Event = ({title, description, start_time, end_time}) => {
   const end = getTime(end_time)
 
   return (
-    <div>
-      <div className="start-date">
-        <p>{start.day}</p>
+    <Wrapper>
+      <StartDate>
         <h3>{start.date}</h3>
-        <p>{start.month}</p>
-        <p>{start.year}</p>
-        <h4>{start.hours}:{start.minutes}</h4>
-      </div>
-      <div className="event-infos">
-        <h3>{title}</h3>
+        <p>{start.month} {start.year}</p>
+        <p>{start.hours}:{start.minutes}</p>
+      </StartDate>
+      <EventInfos>
+        <h4>{title}</h4>
         <p>{description}</p>
-        <p>{end.day} {end.month} {end.date} {end.year} at {end.hours}:{end.minutes}</p>
-      </div>
-    </div>
+        <p><strong>to: </strong>{end.month} {end.date} {end.year} {end.hours}:{end.minutes}</p>
+      </EventInfos>
+    </Wrapper>
   )
 }
 
