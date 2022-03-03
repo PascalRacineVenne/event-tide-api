@@ -56,14 +56,6 @@ const EventForm = ({ onCreate }) => {
         name="title"
         value={formData.title}
       />
-      {/* <Input 
-        type="text"
-        placeholder="enter a description"
-        onChange={handleChange}
-        value={formData.description}
-        name="description"
-        className="description"
-      /> */}
       <TextArea
         placeholder="enter a description"
         name="description"

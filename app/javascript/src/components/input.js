@@ -4,12 +4,12 @@ import styled from "styled-components";
 const StyledInput = styled.input`
   width: 200px;
   font-size: 16px;
-  color: #E93B6F;
+  color: var(--primary-pink);
   margin: 4px 0px;
   padding: 4px 16px;
-  background: #F1F5F8;
+  background: var(--primary-light-gray);
   border: none;
-  border-radius: 2px;
+  border-radius: var(--border-radius);
   text-align: left;
   outline: none;
 `;

@@ -1,5 +1,4 @@
 import React from 'react'
-// import axios from 'axios'
 import Event from '../components/event'
 
 const Events = ({events}) => {

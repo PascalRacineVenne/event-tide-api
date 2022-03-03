@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
-  border: 1px solid salmon;
-  heigth: 80px;
+  border: 1px solid var(--primary-light-gray);
+  height: 80px;
   margin: 8px 0;
 `;
 

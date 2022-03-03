@@ -18,9 +18,8 @@ const StyledPicker = styled(DatePicker)`
   margin: 4px 0px;
   padding: 4px 16px;
   background: #F1F5F8;
-  ${'' /* border: 2px solid #E93B6F; */}
   border: none;
-  border-radius: 2px;
+  border-radius: var(--border-radius);
   text-align: left;
 `;
 

@@ -1,0 +1,29 @@
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.3;
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  height: -webkit-fill-available;
+  scroll-behavior: smooth;
+}
+
+*,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
