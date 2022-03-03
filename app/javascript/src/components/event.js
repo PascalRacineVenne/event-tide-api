@@ -3,6 +3,9 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
+  border: 1px solid salmon;
+  heigth: 80px;
+  margin: 8px 0;
 `;
 
 const StartDate = styled.div`
