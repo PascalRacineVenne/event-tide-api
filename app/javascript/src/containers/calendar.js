@@ -30,9 +30,9 @@ const Calendar = ({ onChange }) => {
   // const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  // const dateRange = [startDate, endDate]
+  const dateRange = [startDate, endDate]
   // console.log(`Start date is :${startDate}, & end date is ${endDate}`)
-
+  console.log('first: ' + dateRange[0] + 'second: ' + dateRange[1]);
   // const handleChange = (startDate, endDate) => {
   //   console.log(startDate, endDate);
   // }
@@ -44,10 +44,10 @@ const Calendar = ({ onChange }) => {
         selected={startDate}
         showTimeSelect
         onChange={(date) => {
-          console.log('start ' + date)
+          // console.log('start ' + date)
           setStartDate(date);
           if (onChange) {
-            onChange(date);
+            onChange(...dateRange, dateRange[0]);
           }
         }}
         startDate={startDate}
@@ -60,10 +60,10 @@ const Calendar = ({ onChange }) => {
         selected={endDate}
         showTimeSelect
         onChange={(date) => {
-          console.log('end ' + date)
+          // console.log('end ' + date)
           setEndDate(date);
           if (onChange) {
-            onChange(date);
+            onChange(...dateRange, dateRange[1]);
           }
         }}
         startDate={startDate}

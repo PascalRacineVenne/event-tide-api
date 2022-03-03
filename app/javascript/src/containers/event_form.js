@@ -23,7 +23,7 @@ const EventForm = ({ onCreate }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // submit to Api!!!
-    // console.log(formData);
+    console.log(formData);
     axios.post("/api/v1/events", formData)
       .then(res => {
         onCreate();
@@ -51,7 +51,9 @@ const EventForm = ({ onCreate }) => {
       />
       <Calendar
 
-        // onChange={(startDate, endDate) => {console.log('start date:', startDate, '& end date:', endDate);}}
+        // onChange={(startDate, endDate) => {
+        //   console.log('start date:', startDate, typeof(startDate), '& end date:', endDate, typeof(endDate));
+        // }}
 
         onChange= {(startDate, endDate) => {
           setFormData(prevFormData => {
