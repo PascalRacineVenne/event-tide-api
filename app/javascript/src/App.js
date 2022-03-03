@@ -6,6 +6,7 @@ import NavBar from './components/navbar'
 
 import axios from 'axios'
 import styled from 'styled-components'
+import '../../assets/stylesheets/index.scss';
 
 const Wrapper = styled.div`
   display: flex;

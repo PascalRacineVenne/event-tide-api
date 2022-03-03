@@ -5,7 +5,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../src/App'
-import '../../assets/stylesheets/index.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
