@@ -3,39 +3,12 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-// const Calendar = ({ onChange }) => {
-//   const [dateRange, setDateRange] = useState([null, null]);
-//   const [startDate, endDate] = dateRange;
-//   // console.log(startDate, endDate)
-//   return (
-//     <div>
-//       <DatePicker
-//         placeholderText="Select your starting date"
-//         selectsRange={true}
-//         startDate={startDate}
-//         endDate={endDate}
-//         onChange={(update) => {
-//           setDateRange(update);
-//           if (onChange) {
-//             onChange(update[0], update[1]);
-//           }
-//         }}
-//         isClearable={false}
-//       />
-//     </div>
-//   );
-// }
 
 const Calendar = ({ onChange }) => {
-  // const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const dateRange = [startDate, endDate]
-  // console.log(`Start date is :${startDate}, & end date is ${endDate}`)
-  console.log('first: ' + dateRange[0] + 'second: ' + dateRange[1]);
-  // const handleChange = (startDate, endDate) => {
-  //   console.log(startDate, endDate);
-  // }
+  // console.log('first: ' + dateRange[0] + 'second: ' + dateRange[1]);
 
   return (
     <div>
@@ -77,3 +50,26 @@ const Calendar = ({ onChange }) => {
 }
 
 export default Calendar
+
+// const Calendar = ({ onChange }) => {
+//   const [dateRange, setDateRange] = useState([null, null]);
+//   const [startDate, endDate] = dateRange;
+//   // console.log(startDate, endDate)
+//   return (
+//     <div>
+//       <DatePicker
+//         placeholderText="Select your starting date"
+//         selectsRange={true}
+//         startDate={startDate}
+//         endDate={endDate}
+//         onChange={(update) => {
+//           setDateRange(update);
+//           if (onChange) {
+//             onChange(update[0], update[1]);
+//           }
+//         }}
+//         isClearable={false}
+//       />
+//     </div>
+//   );
+// }

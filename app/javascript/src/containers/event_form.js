@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import axios from 'axios'
 
 
@@ -9,6 +9,8 @@ const EventForm = ({ onCreate }) => {
   const [formData, setFormData] = useState(
     { title: "", description: "", start_time: null, end_time: null }
   )
+
+  const form = useRef(null);
 
   const handleChange = (event) => {
     const {name, value } = event.target
@@ -34,7 +36,7 @@ const EventForm = ({ onCreate }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form useRef={form} onSubmit={handleSubmit}>
       <Input 
         type="text"
         placeholder="enter event title"
