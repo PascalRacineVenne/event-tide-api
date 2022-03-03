@@ -13,7 +13,8 @@ const Wrapper = styled.div`
 `;
 
 const StyledPicker = styled(DatePicker)`
-  width: 200px;
+  width: 350px;
+  height: 48px;
   font-size: 16px;
   margin: 4px 0px;
   padding: 4px 16px;
@@ -21,6 +22,11 @@ const StyledPicker = styled(DatePicker)`
   border: none;
   border-radius: var(--border-radius);
   text-align: left;
+  box-shadow: var(--box-shadow);
+  &::placeholder {
+    font-family: var(--body-font);
+    font-size: 14px;
+  }
 `;
 
 

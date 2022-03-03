@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledTextArea = styled.textarea`
-  width: 200px;
+  width: 350px;
   height: 100px;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: var(--body-font);
   color: var(--primary-pink);
   margin: 4px 0px;
   padding: 4px 16px;
@@ -14,6 +15,11 @@ const StyledTextArea = styled.textarea`
   text-align: left;
   resize: none;
   outline: none;
+  box-shadow: var(--box-shadow);
+  &::placeholder {
+    font-family: var(--body-font);
+    font-size: 14px;
+  }
 `;
 
 const TextArea = ({placeholder, name, value, onChange}) => {

@@ -9,14 +9,25 @@ import TextArea from '../components/textArea'
 import styled from 'styled-components'
 
 const Wrapper = styled.form`
+  width: 400px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin: 12px auto;
+  background-color: white;
+  border-radius: var(--border-radius);
 `;
 
-const description = styled.input`
+const Description = styled.input`
   height: 200px;
+`;
+const Title = styled.h3`
+  padding: 12px 0;
+  font-family: var(--special-font);
+  color: var(--primary-dark-green);
+  opacity: 0.7;
 `;
 
 const EventForm = ({ onCreate }) => {
@@ -49,19 +60,20 @@ const EventForm = ({ onCreate }) => {
 
   return (
     <Wrapper onSubmit={handleSubmit}>
+        <Title>New Event</Title>
       <Input 
         type="text"
-        placeholder="enter event title"
+        placeholder="Title"
         onChange={handleChange}
         name="title"
         value={formData.title}
       />
       <TextArea
-        placeholder="enter a description"
+        placeholder="Description"
         name="description"
         value={formData.description} 
         onChange={handleChange}
-        className="description"
+        className="Description"
       />
       <Calendar
         onChange= {(startDate, endDate) => {
@@ -74,7 +86,7 @@ const EventForm = ({ onCreate }) => {
           })
         }}
       />
-      <Button name="Submit" />
+      <Button name="SUBMIT" />
     </Wrapper>
   )
 }

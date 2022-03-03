@@ -10,6 +10,7 @@ import '../../assets/stylesheets/index.scss';
 
 const Wrapper = styled.div`
   display: flex;
+  margin: 60px 50px 0;
 `;
 
 const App = () => {
