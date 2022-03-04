@@ -3,13 +3,11 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
-  ${'' /* width: 600px; */}
-  ${'' /* min-width: 600px; */}
   height: 100px;
   margin: 12px 0;
-  border-radius: var(--border-radius);
   background-color: var(--primary-light-gray);
   color: var(--primary-dark-green);
+  border-radius: var(--border-radius);
 `;
 
 const StartDate = styled.div`

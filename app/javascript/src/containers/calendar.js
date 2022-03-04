@@ -31,10 +31,6 @@ const StyledPicker = styled(DatePicker)`
 
 
 const Calendar = ({ onChange, startDate, endDate }) => {
-  // const [startDate, setStartDate] = useState(null);
-  // const [endDate, setEndDate] = useState(null);
-  const dateRange = [startDate, endDate]
-
   return (
     <Wrapper>
       <StyledPicker
@@ -42,9 +38,7 @@ const Calendar = ({ onChange, startDate, endDate }) => {
         selected={startDate}
         showTimeSelect
         onChange={(date) => {
-          // setStartDate(date);
           if (onChange) {
-            // onChange(...dateRange, dateRange[0]);
             onChange(date, endDate);
           }
         }}
@@ -59,9 +53,7 @@ const Calendar = ({ onChange, startDate, endDate }) => {
         selected={endDate}
         showTimeSelect
         onChange={(date) => {
-          // setEndDate(date);
           if (onChange) {
-            // onChange(...dateRange, dateRange[1]);
             onChange(startDate, date);
           }
         }}

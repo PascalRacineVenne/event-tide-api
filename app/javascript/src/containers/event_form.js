@@ -36,9 +36,6 @@ const Error = styled.span`
 `;
 
 const EventForm = ({ onCreate }) => {
-  // const [startDate, setStartDate] = useState(null);
-  // const [endDate, setEndDate] = useState(null);
-
   const [formData, setFormData] = useState(
     { title: "", description: "", start_time: null, end_time: null }
   )
@@ -47,17 +44,13 @@ const EventForm = ({ onCreate }) => {
   )
   const [formError, setFormError] = useState(false);
 
-  
-
-  const validateForm =(data) => {
+    // Validation of the Form Data
+  const validateForm = (data) => {
     let titleError = "";
     let descriptionError = "";
     let dateError = "";
     let formIsValid = false;
     
-    console.log('this is the data passed');
-    console.log(data);
-
     if (data.title === "") {
       titleError = "Title field is required"
     }
@@ -72,16 +65,12 @@ const EventForm = ({ onCreate }) => {
     }
  
     if (Boolean(titleError) || Boolean(descriptionError) || Boolean(dateError)) {
-      console.log('booleans? ' + Boolean(titleError), Boolean(descriptionError), Boolean(dateError));
       setErrorState({ titleError, descriptionError, dateError });
       setFormError(true);
       formIsValid = false;
     } else {
-      console.log('No if Statement booleans? ' + Boolean(titleError), Boolean(descriptionError), Boolean(dateError));
       formIsValid = true;
-      console.log('before going out of the function ' + formIsValid);
     }
-    console.log('before going out with Max' + formIsValid);
     return formIsValid
   }
 
@@ -98,12 +87,10 @@ const EventForm = ({ onCreate }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // console.log("before validationForm function" + formIsValid);
-    // validateForm(formData)
-    // console.log("after validation" + formIsValid);
     if (validateForm(formData)) {
-      // POST request to the Api
+      // reset errorState
       setErrorState( {titleError: "", descriptionError: "", dateError: ""} )
+      // POST request to the Api
       axios.post("/api/v1/events", formData)
       .then(res => {
         onCreate();
@@ -112,9 +99,6 @@ const EventForm = ({ onCreate }) => {
       })
       .catch(res => console.log(res))
     }
-    // console.log("afterPOST" + formIsValid);
-    // setFormIsValid(false);
-    // console.log("after Reset" + formIsValid);
   }
 
   return (
