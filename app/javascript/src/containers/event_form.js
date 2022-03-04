@@ -31,10 +31,46 @@ const Title = styled.h3`
   opacity: 0.7;
 `;
 
+const Error = styled.span`
+  color: var(--primary-pink);
+`;
+
 const EventForm = ({ onCreate }) => {
   const [formData, setFormData] = useState(
     { title: "", description: "", start_time: null, end_time: null }
   )
+  const [errorState, setErrorState] = useState(
+    { titleError: "", descriptionError: "", dateError: "" }
+  )
+  const [formIsValid, setFormIsValid] = useState(false)
+
+  const validateForm =(data) => {
+    let titleError = "";
+    let descriptionError = "";
+    let dateError = "";
+
+    console.log(data);
+    
+    if (data.title === "") {
+      titleError = "Title field is required"
+    }
+    if (data.title.length > 32) {
+      titleError = "You have a maximum of 32 characters"
+    }
+    if (data.description.length > 100) {
+      descriptionError = "You have a maximum of 100 characters"
+    }
+    if (data.start_time === null || data.end_time === null) {
+      dateError = "Please pick a starting and ending date"
+    }
+ 
+    if (titleError || descriptionError || dateError) {
+      setErrorState({ titleError, descriptionError, dateError });
+      // console.log(titleError, descriptionError, dateError );
+      setFormIsValid(false);
+    }
+    setFormIsValid(true)
+  }
 
   const handleChange = (event) => {
     const {name, value } = event.target
@@ -48,6 +84,8 @@ const EventForm = ({ onCreate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    validateForm(formData)
 
     // POST request to the Api
     axios.post("/api/v1/events", formData)
@@ -69,6 +107,7 @@ const EventForm = ({ onCreate }) => {
         name="title"
         value={formData.title}
       />
+      <Error>{errorState.titleError}</Error>
       <TextArea
         placeholder="Description"
         name="description"
@@ -76,6 +115,7 @@ const EventForm = ({ onCreate }) => {
         onChange={handleChange}
         className="Description"
       />
+      <Error>{errorState.descriptionError}</Error>
       <Calendar
         onChange= {(startDate, endDate) => {
           setFormData(prevFormData => {
@@ -87,9 +127,10 @@ const EventForm = ({ onCreate }) => {
           })
         }}
       />
+      <Error>{errorState.dateError}</Error>
       <Button name="SUBMIT" />
     </Wrapper>
   )
 }
 
-export default EventForm
+export default EventForm;
