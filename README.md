@@ -68,8 +68,8 @@ Je veux apprendre plus sur ISO8601, RFC3339 et comment formatter les données re
 
 ### Commentaires
 
-La structure de fichier JS est divisé en component **stateless** ou avec **state**
-Dans l'optique de réutilisation de component, j'ai opté pour une approche où chaque élément HTML a son propre component.
+La structure de fichier JS est divisé en component **stateless** ou avec **state**.
+Dans l'optique de réutilisation de component, j'ai opté pour une approche où les grands éléments structuraux HTML aient leur propre component.
 
 J'ai beaucoup apprécié faire ce challenge cette semaine, j'y ai appris beaucoup ainsi que consolider plusieurs notions. 
 
