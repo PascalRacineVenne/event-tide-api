@@ -31,7 +31,6 @@ const StyledPicker = styled(DatePicker)`
 
 
 const Calendar = ({ onChange, startDate, endDate }) => {
-  console.log('this is :' + startDate);
   return (
     <Wrapper>
       <StyledPicker
