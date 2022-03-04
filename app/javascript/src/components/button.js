@@ -6,18 +6,19 @@ const StyledButton = styled.button`
   height: 48px;
   background: var(--primary-light-gray);
   color: var(--primary-pink);
+  border: 2px solid var(--primary-pink);
   font-size: 18px;
   font-weight: bold;
   text-align: center;
   margin: 4px 0px 24px;
   padding: 15px 20px;
-  border: none;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   transition: all 0.3s;
   &:hover {
     color: var(--primary-light-gray);
     background: var(--primary-pink);
+    border: none;
   }
 `;
 

@@ -15,13 +15,14 @@ const Wrapper = styled.form`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 12px auto;
+  margin: 12px 48px;
   background-color: white;
   border-radius: var(--border-radius);
 `;
 
 const Description = styled.input`
   height: 200px;
+  padding: 12px 0;
 `;
 const Title = styled.h3`
   padding: 12px 0;

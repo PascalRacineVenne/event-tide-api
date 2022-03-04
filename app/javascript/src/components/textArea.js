@@ -6,9 +6,9 @@ const StyledTextArea = styled.textarea`
   height: 100px;
   font-size: 14px;
   font-family: var(--body-font);
-  color: var(--primary-pink);
+  color: var(--primary-dark-green);
   margin: 4px 0px;
-  padding: 4px 16px;
+  padding: 15px 20px;
   background: var(--primary-light-gray);
   border: none;
   border-radius: var(--border-radius);

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
-  width: 600px;
-  min-width: 600px;
+  ${'' /* width: 600px; */}
+  ${'' /* min-width: 600px; */}
   height: 100px;
   margin: 12px 0;
   border-radius: var(--border-radius);
@@ -20,6 +20,7 @@ const StartDate = styled.div`
   min-width: 100px;
   text-align: center;
   background-color: var(--primary-light-green);
+  border-radius: 4px 0 0 4px;
   color: var(--primary-light-gray);
 `;
 
@@ -32,12 +33,10 @@ const EventInfos = styled.div`
 `;
 
 const Title = styled.div`
-  ${'' /* border: 1px solid red; */}
 `;
 
 const Description = styled.div`
   margin-top: 4px;
-  ${'' /* border: 1px solid blue; */}
 `;
 
 const EndsOn = styled.div`

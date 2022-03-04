@@ -2,13 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  background-color: black;
   display: flex;
-  justify-content: space-between;
-  padding: 0 24px;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
 `;
 
-const TopLeft = styled.div`
-  
+const TopLeft = styled.h2`
+  padding-right: 32px;
+  color: var(--primary-light-gray);
 `;
 
 const TopRight = styled.ul`
@@ -16,7 +19,8 @@ const TopRight = styled.ul`
     justify-content: flex-end;
     list-style: none;
   & li {
-    padding: 0 4px;
+    padding: 8px 16px;
+    opacity: 0.7;
 
   }
 `;
@@ -25,7 +29,7 @@ const NavBar = () => {
   return (
     <Wrapper>
       <TopLeft>
-        <p>Event Tide</p>
+        Event Tide REST API
       </TopLeft>
       <TopRight>
         <li>about</li>
