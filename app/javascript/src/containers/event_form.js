@@ -36,21 +36,28 @@ const Error = styled.span`
 `;
 
 const EventForm = ({ onCreate }) => {
+  // const [startDate, setStartDate] = useState(null);
+  // const [endDate, setEndDate] = useState(null);
+
   const [formData, setFormData] = useState(
     { title: "", description: "", start_time: null, end_time: null }
   )
   const [errorState, setErrorState] = useState(
     { titleError: "", descriptionError: "", dateError: "" }
   )
-  const [formIsValid, setFormIsValid] = useState(false)
+  const [formError, setFormError] = useState(false);
+
+  
 
   const validateForm =(data) => {
     let titleError = "";
     let descriptionError = "";
     let dateError = "";
-
-    console.log(data);
+    let formIsValid = false;
     
+    console.log('this is the data passed');
+    console.log(data);
+
     if (data.title === "") {
       titleError = "Title field is required"
     }
@@ -64,12 +71,18 @@ const EventForm = ({ onCreate }) => {
       dateError = "Please pick a starting and ending date"
     }
  
-    if (titleError || descriptionError || dateError) {
+    if (Boolean(titleError) || Boolean(descriptionError) || Boolean(dateError)) {
+      console.log('booleans? ' + Boolean(titleError), Boolean(descriptionError), Boolean(dateError));
       setErrorState({ titleError, descriptionError, dateError });
-      // console.log(titleError, descriptionError, dateError );
-      setFormIsValid(false);
+      setFormError(true);
+      formIsValid = false;
+    } else {
+      console.log('No if Statement booleans? ' + Boolean(titleError), Boolean(descriptionError), Boolean(dateError));
+      formIsValid = true;
+      console.log('before going out of the function ' + formIsValid);
     }
-    setFormIsValid(true)
+    console.log('before going out with Max' + formIsValid);
+    return formIsValid
   }
 
   const handleChange = (event) => {
@@ -85,16 +98,23 @@ const EventForm = ({ onCreate }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    validateForm(formData)
-
-    // POST request to the Api
-    axios.post("/api/v1/events", formData)
+    // console.log("before validationForm function" + formIsValid);
+    // validateForm(formData)
+    // console.log("after validation" + formIsValid);
+    if (validateForm(formData)) {
+      // POST request to the Api
+      setErrorState( {titleError: "", descriptionError: "", dateError: ""} )
+      axios.post("/api/v1/events", formData)
       .then(res => {
         onCreate();
         alert("Your new event has been added to the list")
         setFormData({title: "", description: "", start_time: null, end_time: null})
       })
       .catch(res => console.log(res))
+    }
+    // console.log("afterPOST" + formIsValid);
+    // setFormIsValid(false);
+    // console.log("after Reset" + formIsValid);
   }
 
   return (
@@ -107,7 +127,7 @@ const EventForm = ({ onCreate }) => {
         name="title"
         value={formData.title}
       />
-      <Error>{errorState.titleError}</Error>
+      { formError && <Error>{errorState.titleError}</Error>}
       <TextArea
         placeholder="Description"
         name="description"
@@ -115,8 +135,10 @@ const EventForm = ({ onCreate }) => {
         onChange={handleChange}
         className="Description"
       />
-      <Error>{errorState.descriptionError}</Error>
+      { formError && <Error>{errorState.descriptionError}</Error>}
       <Calendar
+        startDate={formData.start_time}
+        endDate={formData.end_time}
         onChange= {(startDate, endDate) => {
           setFormData(prevFormData => {
             return {
@@ -127,7 +149,7 @@ const EventForm = ({ onCreate }) => {
           })
         }}
       />
-      <Error>{errorState.dateError}</Error>
+      { formError && <Error>{errorState.dateError}</Error>}
       <Button name="SUBMIT" />
     </Wrapper>
   )
