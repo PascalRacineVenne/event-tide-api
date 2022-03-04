@@ -30,6 +30,7 @@ Voici les outils utilisés durant l'implémentation de ce projet:
 * Configuration
 
 * Database creation
+
 Postgresql est utilisé comme base de données pour Active Record
 Un **seed** file est disponible populer la base donnée.
 
