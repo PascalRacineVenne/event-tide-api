@@ -86,6 +86,7 @@ const EventForm = ({ onCreate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(formData);
 
     if (validateForm(formData)) {
       // reset errorState
