@@ -27,7 +27,7 @@ Un événement est caractérisé par son nom (32 caractères maximum), sa descri
 
 ### System dependencies
 
-J'ai utilisé le [gem 'jsonapi-serializer'](https://github.com/jsonapi-serializer/jsonapi-serializer) pour la sérialisatiion des données.
+J'ai utilisé le [gem 'jsonapi-serializer'](https://github.com/jsonapi-serializer/jsonapi-serializer) pour la sérialisation des données.
 
 J'ai utilisé le [react-datepicker: "^4.7.0"](https://reactdatepicker.com/) pour la gestion des calendriers.
 
@@ -50,7 +50,25 @@ Pour initialiser le database, simplement faire:
 
 J'ai utilisé le [gem 'rspec-rails', '~> 5.0.0'](https://github.com/rspec/rspec-rails) pour construire mes tests files.
 
+J'ai créer des tests pour le  modèle avec succès.
+Les tests pour le controlleur n'ont pu être fait pour l'instant, je n'ai pas encore saisi comment bien construire le test pour celui-ci.
+J'ai cependant utilisé **Postman** pour vérifier que toutes les actions de mon controlleur fonctionnaient.
+
 Pour effectuer les tests depuis le terminal, simplement taper: 
 > **rspec**
 
+### Timezones
 
+Cette portion est encore plus abstraite pour moi.
+Suite à mes lectures j'ai bien saisi l'enjeu de la conversion des dates et heures en fonction des lieux et même le décalage en fonction des heures d'hiver et d'été.
+
+J'ai trouvé de la documentation sur un outils intéressant **Moments.js** et **Day.js**.
+Je n'ai cependant pas encore eu le temps de creuser et de l'incorporer cette logique dans le programme.
+
+Je veux apprendre plus sur ISO8601, RFC3339 et comment formatter les données reçuent selon.
+
+### Commentaires
+
+J'ai beaucoup apprécié faire ce challenge cette semaine, j'y ai appris beaucoup ainsi que consolider plusieurs notions. 
+
+J'ai mis probablement autour de 25 heures pour faire ceci.
