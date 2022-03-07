@@ -23,6 +23,11 @@ Un événement est caractérisé par son nom (32 caractères maximum), sa descri
 * React version 17.0.2
 * Webpacker version 4.46.0
 
+## Pour démarrer le projet
+
+* depuis le terminal : **rails s**
+* dans le browser: **http://localhost:3000/**
+
 ### System dependencies
 
 J'ai utilisé le [gem 'jsonapi-serializer'](https://github.com/jsonapi-serializer/jsonapi-serializer) pour la sérialisation des données.
@@ -64,12 +69,12 @@ Suite à mes lectures j'ai bien saisi l'enjeu de la conversion des dates et heur
 J'ai trouvé de la documentation sur un outils intéressant **Moments.js** et **Day.js**.
 Je n'ai cependant pas encore eu le temps de creuser et de l'incorporer cette logique dans le programme.
 
-Je veux apprendre plus sur ISO8601, RFC3339 et comment formatter les données reçuent selon.
+Je veux apprendre plus sur ISO8601, RFC3339 et comment formatter les données reçuent.
 
 ### Commentaires
 
 La structure de fichier JS est divisé en component **stateless** ou avec **state**.
-Dans l'optique de réutilisation de component, j'ai opté pour une approche où les grands éléments structuraux HTML aient leur propre component.
+Dans la perspective de la réutilisation des composants, j'ai opté pour une approche où les grands éléments structurels HTML ont leurs propres composants.
 
 J'ai beaucoup apprécié faire ce challenge cette semaine, j'y ai appris beaucoup ainsi que consolider plusieurs notions. 
 
